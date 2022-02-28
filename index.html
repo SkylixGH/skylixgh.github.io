@@ -19,6 +19,19 @@
                 width: 100vw;
                 height: 100vh;
             }
+          
+          button {
+            border: 1px solid #333;
+            background: transparent;
+            border-radius: 2px;
+            font-size: 12px;
+            padding: 5px;
+            transition: 100ms;
+          }
+          
+          button:hover {
+            background: #333;
+          }
             
             hr {
                 border: none;
@@ -37,7 +50,12 @@
                 margin: 10px;
                 max-width: 600px;
                 text-align: center;
+                color: #999;
             }
+          
+          p:nth-child(4), p:nth-child(5) {
+            text-align: initial;
+          }
         </style>
     </head>
   
@@ -48,6 +66,10 @@
         
         <p>Skylix is a chat platform and an open source JS framework developer!</p>
         <p>What is NexoJS?: It is a JS and NodeJS framework to allow you to build highly interactive realtime apps from the server to the client using react, nodejs, and supports all platforms such as mobile, desktop, web and server!</p>
-        <p>This website will redirect you to the official website when it is ready</p>
+        <p>This website can redirect you to the official website when it is ready</p>
+        
+        <br />
+        <p>Status: Ready</p> 
+        <p>Redirect: <button onclick="window.location.href = 'https://skylix.net'">Skylix.net</button></p>
     </body>
 </html>
