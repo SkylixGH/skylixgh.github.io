@@ -11,7 +11,6 @@
             
             body {
                 margin: 0;
-                padding: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -42,11 +41,20 @@
             
             h1 {
                 font-family: sans-serif;
-                font-size: 30px;
+                font-size: 400px;
+                color: #111;
+              position: absolute;
             }
+          
+          .h1 {
+            position: absolute;
+            font-family: sans-serif;
+            font-size: 330px;
+            color: rgb(20, 20, 20);
+          }
             
             p {
-                font-family: sans-serif;
+                font-family: sans-serif; 
                 margin: 10px;
                 max-width: 600px;
                 text-align: center;
@@ -56,20 +64,90 @@
           p:nth-child(4), p:nth-child(5) {
             text-align: initial;
           }
+          
+          .spinner {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            border: 2px solid #333;
+            position: absolute;
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            transform: scale(2);
+          }
+          
+          .a1 {
+            border-top-color: #fff;
+          }
+          
+          .a2 {
+            width: 70px;
+            height: 70px;
+            border-top-color: #fff;
+            animation-direction: reverse;
+            animation-duration: 0.8s;
+          }
+          
+          .a3 {
+            width: 80px;
+            height: 80px;
+            border-top-color: #fff;
+            animation-duration: 0.6s;
+          }
+          
+          .a4 {
+            width: 90px;
+            height: 90px;
+            border-top-color: #fff;
+            animation-direction: reverse;
+            animation-duration: 0.4s;
+          }
+          
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            
+            to {
+              transform: rotate(360deg);
+            }
+          }
         </style>
     </head>
   
     <body>
-        <h1>This website is coming soon!</h1>
-        
-        <hr />
-        
-        <p>Skylix is a chat platform and an open source JS framework developer!</p>
-        <p>What is NexoJS?: It is a JS and NodeJS framework to allow you to build highly interactive realtime apps from the server to the client using react, nodejs, and supports all platforms such as mobile, desktop, web and server!</p>
-        <p>This website can redirect you to the official website when it is ready</p>
-        
-        <br />
-        <p>Status: Ready</p> 
-        <p>Redirect: <button onclick="window.location.href = 'https://skylix.net'">Skylix.net</button></p>
+      <h1></h1>
+      <h1 class="h1"></h1>
+      
+        <div class="spinner a1"></div>
+        <div class="spinner a2"></div>
+        <div class="spinner a3"></div>
+        <div class="spinner a4"></div>
+      
+      <script>
+        let count = 6;
+
+        function setCount(val) {
+          count = val;
+          const counter = document.querySelector('h1');
+          const counter2 = document.querySelector('.h1');
+
+          counter.innerHTML = count;
+          counter2.innerHTML = count;
+        }
+
+        let l = setInterval(() => {
+          setCount(count - 1);
+
+          if (count < 0) {
+            clearInterval(l);
+            setCount(0);
+            window.location.href = "https://skylix.net";
+          }
+        }, 1000);
+
+      </script>
     </body>
 </html>
