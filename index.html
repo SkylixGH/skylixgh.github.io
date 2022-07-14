@@ -9,14 +9,29 @@
       
       <script>
         fetch("https://api.codetabs.com/v1/loc/?github=SkylixGH/Elixor").then((res) => res.json()).then((d) => {
+					let total = 0;
+					
           d.forEach((it) => {
             document.querySelector('h1')?.remove();
             const rec = document.createElement('div');
             rec.innerHTML = `Language = ${it.language} && Lines = ${it.lines}`;
+						
+						total += it.lines;
 
             console.log(rec.innerHTML);
             document.body.appendChild(rec);
           });
+					
+					const progressToGoal = document.createElement("meter");
+					const goal = 20000;
+					
+					const perGoal = document.createElement("h1")l
+					perGoal.innerHTML = `We currently have ${total} lines of code, our goal is ${goal}`;
+					
+					progressToGoal.value = total;
+					progressToGoal.max = goal;
+					
+					document.body.appendChild(progressToGoal);
         });
       </script>
     </body>
